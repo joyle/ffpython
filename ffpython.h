@@ -1,4 +1,4 @@
-﻿#ifndef __FFPYTHON_H_
+#ifndef __FFPYTHON_H_
 #define __FFPYTHON_H_
 
 #include <Python.h>
@@ -1169,7 +1169,7 @@ private:
         for (size_t i = 0; i < m_all_pyclass.size(); ++i)
         {
             m_all_pyclass[i].static_pytype_info->mod_name = m_mod_name;
-            if (false == m_all_pyclass[i].inherit_name.empty())//! ���ڻ���
+            if (false == m_all_pyclass[i].inherit_name.empty())//! ???????
             {
                 pyclass_regigster_tool_t* inherit_class = get_pyclass_info_by_name(m_all_pyclass[i].inherit_name);
                 assert(inherit_class && "base class must be registed");
@@ -1297,7 +1297,7 @@ private:
                 "import %s\n"
                 "class %s(object):\n"
                 "\t'''%s'''\n"
-                "\tdef __init__(self, %s assign_obj_ = 0):\n"//! ����init����
+                "\tdef __init__(self, %s assign_obj_ = 0):\n"//! ????init????
                 "\t\t'''%s'''\n"
                 "\t\tif True == isinstance(assign_obj_, %s):\n"
                 "\t\t\tself.obj = assign_obj_\n"
@@ -1315,7 +1315,7 @@ private:
 
             string gen_class_str = buff;
             SAFE_SPRINTF(buff, sizeof(buff),
-                "\tdef delete(self):\n"//! ����init����
+                "\tdef delete(self):\n"//! ????init????
                 "\t\t'''delete obj'''\n"
                 "\t\tself.obj.delete()\n");
             gen_class_str += buff;
@@ -2044,7 +2044,7 @@ struct pytype_traits_t<map<T, R> >
     static const char* get_typename() { return "map";}
 };
 
-//! ��ȡpython�����ķ���ֵ,������
+//! ???python??????????,??????
 template<typename T>
 class pytype_tool_impl_t: public pytype_tool_t
 {
@@ -2898,7 +2898,7 @@ struct pyext_func_traits_t<RET (*)(ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG
     }
 };
 
-//! ��������pyclass ��ʼ������
+//! ????????pyclass ?????????
 template <typename CLASS_TYPE>
 struct pyclass_ctor_tool_t<CLASS_TYPE, int(*)()>
 {
